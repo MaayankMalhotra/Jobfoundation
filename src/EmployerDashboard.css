@@ -1,0 +1,381 @@
+/* Main Wrapper */
+.main-wrapper {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* Sidebar */
+  .app-menu {
+    width: 250px;
+    background-color: #5a34a0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding-top: 20px;
+    color: #fff;
+  }
+  
+  .navbar-brand-box {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .card-logo {
+    height: 50px;
+  }
+  
+  .btn-vertical-sm-hover {
+    background: none;
+    border: none;
+    color: #fff;
+  }
+  
+  .sidebar-user {
+    padding: 10px 20px;
+    margin: 10px 0;
+  }
+  
+  .sidebar-user .header-profile-user {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .sidebar-user-name-text {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .sidebar-user-name-sub-text {
+    font-size: 12px;
+  }
+  
+  #scrollbar {
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(100vh - 200px);
+  }
+  
+  .navbar-nav .menu-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .navbar-nav .nav-link {
+    padding: 10px 15px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+  }
+  
+  .navbar-nav .nav-link i {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  .sidebar-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #5a34a0;
+    z-index: -1;
+  }
+  
+  /* Main Content */
+  .main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    background-color: #f8f9fa;
+  }
+  
+  #page-topbar {
+    position: fixed;
+    top: 0;
+    left: 250px;
+    right: 0;
+    z-index: 1000;
+    background-color: #fff;
+    border-bottom: 1px solid #e9ecef;
+    padding: 10px 0;
+  }
+  
+  .layout-width {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .navbar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .vertical-menu-btn {
+    background: none;
+    border: none;
+    padding: 0 10px;
+  }
+  
+  .app-search {
+    margin-left: 20px;
+    width: 300px;
+  }
+  
+  .app-search .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 50px;
+    padding: 8px 40px;
+    background-color: #f8f9fa;
+    font-size: 14px;
+  }
+  
+  .app-search .search-widget-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+  }
+  
+  .topbar-head-dropdown .btn-icon {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .topbar-badge {
+    top: 0;
+    right: 0;
+    font-size: 10px;
+    padding: 2px 5px;
+  }
+  
+  .header-profile-user {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #f8f9fa;
+  }
+  
+  .user-name-sub-text {
+    font-size: 12px;
+    color: #6c757d;
+  }
+  
+  .topbar-user {
+    margin-left: auto;
+  }
+  
+  .topbar-user .btn {
+    padding: 0;
+    border: none;
+    background: none;
+  }
+  
+  .topbar-user:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: all 0.3s ease;
+  }
+  
+  .dropdown-menu {
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .dropdown-menu-end {
+    right: 0;
+    left: auto;
+  }
+  
+  .dropdown-header {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #5a34a0;
+  }
+  
+  .dropdown-item i,
+  .dropdown-item .material-icons {
+    margin-right: 10px;
+    font-size: 16px;
+  }
+  
+  .page-content {
+    padding: 80px 20px 20px 20px;
+  }
+  
+  .card-title {
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .add-btn {
+    background-color: #5a34a0;
+    border: none;
+  }
+  
+  .add-btn:hover {
+    background-color: #4a2b85;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card-body .row.g-3 {
+    align-items: center;
+  }
+  
+  .card-body .form-control {
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  
+  .search-box {
+    position: relative;
+  }
+  
+  .search-box .form-control.search {
+    border-radius: 5px;
+    padding: 8px 40px 8px 40px;
+    font-size: 14px;
+  }
+  
+  .search-box .search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 16px;
+  }
+  
+  .filter-btn {
+    background-color: #5a34a0;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .filter-btn:hover {
+    background-color: #4a2b85;
+  }
+  
+  .filter-btn i {
+    font-size: 16px;
+    margin-right: 5px;
+  }
+  
+  .nav-tabs-custom .nav-link {
+    color: #6c757d;
+    font-weight: 500;
+  }
+  
+  .nav-tabs-custom .nav-link.active {
+    color: #5a34a0;
+    border-bottom: 2px solid #5a34a0;
+  }
+  
+  .table th, .table td {
+    vertical-align: middle;
+  }
+  
+  .badge.bg-success-subtle {
+    background-color: #e6f4ea;
+    color: #28a745;
+  }
+  
+  .badge.bg-warning-subtle {
+    background-color: #fff3cd;
+    color: #ffc107;
+  }
+  
+  /* Modal Styling */
+  .modal-content {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modal-header {
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .modal-title {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+  .modal-body .form-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .modal-body .form-control {
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .modal-footer {
+    border-top: 1px solid #e9ecef;
+  }
+  
+  .modal-footer .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+  }
+  
+  .modal-footer .btn-primary {
+    background-color: #5a34a0;
+    border: none;
+  }
+  
+  .modal-footer .btn-primary:hover {
+    background-color: #4a2b85;
+  }

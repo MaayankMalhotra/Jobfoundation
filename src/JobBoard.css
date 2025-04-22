@@ -1,0 +1,91 @@
+/* JobBoard.css */
+
+/* Custom Container Width */
+.custom-container {
+  max-width: 1400px !important; /* Increased width from default 1140px to 1400px */
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 250px; /* Sidebar width */
+  width: calc(100% - 250px);
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.job-hero-section {
+  position: relative;
+}
+
+.bg-overlay-pattern {
+  background-image: url('https://themesbrand.com/velzon/html/default/assets/images/landing/bg-pattern.png') !important;
+}
+
+.bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Search Box */
+.search-box {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Job Card */
+.avatar-sm {
+  width: 48px;
+  height: 48px;
+}
+
+.avatar-xxs {
+  width: 24px;
+  height: 24px;
+}
+
+.list-inline-item {
+  margin-right: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  .custom-container {
+    max-width: 1140px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .custom-container {
+    max-width: 960px !important;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-container {
+    max-width: 720px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-container {
+    max-width: 100% !important;
+    padding: 0 10px;
+  }
+}

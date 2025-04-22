@@ -1,0 +1,136 @@
+/* Sidebar.css */
+
+/* Sidebar */
+.app-menu {
+    width: 250px;
+    background-color: #5a34a0; /* Dark purple background as per image */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    padding-top: 20px;
+    color: #fff;
+  }
+  
+  .navbar-brand-box {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .card-logo {
+    height: 50px;
+  }
+  
+  .btn-vertical-sm-hover {
+    background: none;
+    border: none;
+    color: #fff;
+  }
+  
+  .btn-vertical-sm-hover:hover {
+    color: #a3bffa; /* Light purple on hover */
+  }
+  
+  .sidebar-user {
+    padding: 10px 20px;
+    margin: 10px 0;
+  }
+  
+  .sidebar-user .header-profile-user {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .sidebar-user-name-text {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .sidebar-user-name-sub-text {
+    font-size: 12px;
+  }
+  
+  #scrollbar {
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(100vh - 200px);
+  }
+  
+  .navbar-nav .menu-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  
+  .navbar-nav .nav-link {
+    padding: 10px 15px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+  }
+  
+  .navbar-nav .nav-link i {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  
+  .sidebar-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #5a34a0;
+    z-index: -1;
+  }
+  
+  /* Dropdown Styling */
+  .dropdown-menu {
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .dropdown-menu-end {
+    right: 0;
+    left: auto;
+  }
+  
+  .dropdown-header {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #5a34a0;
+  }
+  
+  .dropdown-item i,
+  .dropdown-item .material-icons {
+    margin-right: 10px;
+    font-size: 16px;
+  }

@@ -1,0 +1,27 @@
+:root{
+
+    --vz-primary : #5D12A1;
+    --vz-primary-text-emphasis:#400c6f;
+    --vz-success: #8200F1;
+    --vz-success-rgb: 130, 0, 241;
+    --vz-primary-rgb: 130, 0, 241
+}
+
+
+.btn-primary {
+    --vz-btn-bg: var(--vz-primary);
+    --vz-btn-border-color: var(--vz-primary);
+    --vz-btn-hover-bg: var(--vz-primary-text-emphasis);
+    --vz-btn-hover-border-color: var(--vz-primary-text-emphasis);
+    --vz-btn-focus-shadow-rgb: var(--vz-primary-rgb);
+    --vz-btn-active-bg: var(--vz-primary-text-emphasis);
+    --vz-btn-active-border-color: var(--vz-primary-text-emphasis);
+    --vz-btn-disabled-bg: var(--vz-primary);
+    --vz-btn-disabled-border-color: var(--vz-primary);
+}
+
+.btn-check:checked+.btn, :not(.btn-check)+.btn:active, .btn:first-child:active, .btn.active, .btn.show {
+    color: var(--vz-btn-active-color);
+    background-color: var(--vz-btn-active-bg);
+    border-color: var(--vz-btn-active-border-color);
+}

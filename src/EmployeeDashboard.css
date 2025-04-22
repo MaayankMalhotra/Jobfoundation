@@ -1,0 +1,61 @@
+/* EmployeeDashboard.css */
+.profile-foreground {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .profile-wid-img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .profile-wrapper {
+    padding: 0 15px;
+  }
+  
+  .avatar-lg img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .card {
+    margin-bottom: 20px;
+  }
+  
+  .table-responsive {
+    overflow-x: auto;
+  }
+  
+  @media (max-width: 768px) {
+    .profile-wrapper {
+      padding: 0 10px;
+    }
+  
+    .avatar-lg img {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .card {
+      margin-bottom: 15px;
+    }
+  }
+  /* Ensure the sidebar is fixed and takes a specific width */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px; /* Adjust as per your sidebar width */
+  background-color: #f8f9fa; /* Example background */
+  z-index: 1000;
+}
+
+/* Offset the main content to prevent overlap */
+.main-content {
+  margin-left: 250px; /* Must match the sidebar width */
+  padding: 20px;
+}
+
+
+
