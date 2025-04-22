@@ -72,7 +72,7 @@ const LoginPage = () => {
             <div className='col-md-6 '>
                 <div className='sideAccountContent d-flex'>
                     <div className='innerFormAccount align-self-center '>
-                      <h1>Sign In Testing Webhook</h1>
+                      <h1>Sign In</h1>
                       {error && <div className="alert alert-danger">{error}</div>}
 
                         <form onSubmit={handleSubmit}>
@@ -123,7 +123,7 @@ const LoginPage = () => {
 
                           <div className="mt-4">
                             <button className="btn btn-primary w-100" type="submit">
-                              Sign In test 3
+                              Sign In
                             </button>
                           </div>
                         
