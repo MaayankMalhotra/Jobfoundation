@@ -632,7 +632,9 @@ import axios from 'axios';
 import Select from 'react-select';
 import Sidebar from './Sidebar';
 import './EditEmployee.css';
-
+import Header from './components/header'
+import Footer from './components/footer'
+import Loader from './components/loader'
 const EditEmployee = () => {
   const [activeTab, setActiveTab] = useState('personalDetails');
   const [formData, setFormData] = useState({
@@ -876,7 +878,7 @@ const EditEmployee = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader/>;
   }
 
   const preSelectedSkills = skills.length > 0
@@ -889,40 +891,29 @@ const EditEmployee = () => {
     : [];
 
   return (
-    <div className="container-fluid">
-      <div className="row">
-        {/* Sidebar */}
-        <div className="col-md-3 col-lg-2 p-0">
-          <Sidebar />
-        </div>
-
-        {/* Main Content */}
-        <div className="col-md-9 col-lg-10 main-content">
-          <div className="container my-5 pt-5">
-            <div className="row">
-              <div className="col-12">
-                <section className="section job-hero-section bg-primary" id="hero">
-                  <div className="bg-overlay bg-overlay-pattern opacity-50"></div>
-                  <div className="container custom-container">
-                    <div className="row justify-content-between align-items-center pt-5">
-                      <div className="col-lg-8 text-center m-auto">
-                        <h1 className="text-light display-6 fw-semibold text-capitalize mb-3">
-                          Find Your Perfect Job Match
-                        </h1>
-                        <p className="lead text-light lh-base mb-4">
-                          Find jobs, create trackable resumes and enrich your applications...
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </section>
+    <>
+      <Header/>
+        <section className="section pt-0 headerTopSpace">
+          <div className="section job-hero-section bg-primary  pt-5 pb-4" id="hero">
+            <div className="bg-overlay bg-overlay-pattern opacity-50"></div>
+            <div className="container-fluid custom-container">
+              <div className="row justify-content-between align-items-center">
+                <div className="col-lg-8 text-center m-auto">
+                  <h1 className="text-light display-6 fw-semibold text-capitalize mb-3">
+                    Edit Profile
+                  </h1>
+                  <p className="lead text-light lh-base mb-4">
+                    Keep your profile updated to get better job matches....
+                  </p>
+                </div>
               </div>
             </div>
-
-            <div className="row mt-4">
+          </div>
+          <div className="container-fluid custom-container mt-5 pt-4">
+            <div className="row gx-3">
               <div className="col-12">
                 <div className="card">
-                  <div className="card-header">
+                  {/* <div className="card-header">
                     <ul className="nav nav-tabs-custom rounded card-header-tabs border-bottom-0">
                       <li className="nav-item">
                         <a
@@ -934,17 +925,17 @@ const EditEmployee = () => {
                         </a>
                       </li>
                     </ul>
-                  </div>
+                  </div> */}
                   <div className="card-body p-4">
                     {activeTab === 'personalDetails' && (
                       <form onSubmit={handleSubmit}>
-                        <div className="row">
+                        <div className="row gx-3">
                           <div className="col-lg-6">
                             <div className="mb-3">
                               <label htmlFor="first_nameInput" className="form-label">First Name</label>
                               <input
                                 type="text"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue "
                                 id="first_nameInput"
                                 name="first_name"
                                 value={formData.first_name}
@@ -957,7 +948,7 @@ const EditEmployee = () => {
                               <label htmlFor="last_nameInput" className="form-label">Last Name</label>
                               <input
                                 type="text"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="last_nameInput"
                                 name="last_name"
                                 value={formData.last_name}
@@ -970,7 +961,7 @@ const EditEmployee = () => {
                               <label htmlFor="phoneInput" className="form-label">Phone</label>
                               <input
                                 type="text"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="phoneInput"
                                 name="phone"
                                 value={formData.phone}
@@ -983,7 +974,7 @@ const EditEmployee = () => {
                               <label htmlFor="emailInput" className="form-label">Email</label>
                               <input
                                 type="email"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="emailInput"
                                 name="email"
                                 value={formData.email}
@@ -997,7 +988,7 @@ const EditEmployee = () => {
                               <label htmlFor="experienceInput" className="form-label">Experience (Years)</label>
                               <input
                                 type="number"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="experienceInput"
                                 name="experience"
                                 value={formData.experience}
@@ -1010,7 +1001,7 @@ const EditEmployee = () => {
                               <label htmlFor="ctcInput" className="form-label">CTC</label>
                               <input
                                 type="number"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="ctcInput"
                                 name="ctc"
                                 value={formData.ctc}
@@ -1023,7 +1014,7 @@ const EditEmployee = () => {
                               <label htmlFor="ectcInput" className="form-label">Expected CTC</label>
                               <input
                                 type="number"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="ectcInput"
                                 name="ectc"
                                 value={formData.ectc}
@@ -1036,7 +1027,7 @@ const EditEmployee = () => {
                               <label htmlFor="notice_periodInput" className="form-label">Notice Period (Days)</label>
                               <input
                                 type="number"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="notice_periodInput"
                                 name="notice_period"
                                 value={formData.notice_period}
@@ -1049,7 +1040,7 @@ const EditEmployee = () => {
                               <label htmlFor="educationInput" className="form-label">Education</label>
                               <input
                                 type="text"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="educationInput"
                                 name="education"
                                 value={formData.education}
@@ -1062,7 +1053,7 @@ const EditEmployee = () => {
                               <label htmlFor="desired_job_typeInput" className="form-label">Desired Job Type</label>
                               <input
                                 type="text"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="desired_job_typeInput"
                                 name="desired_job_type"
                                 value={formData.desired_job_type}
@@ -1075,7 +1066,7 @@ const EditEmployee = () => {
                               <label htmlFor="preferred_shiftInput" className="form-label">Preferred Shift</label>
                               <input
                                 type="text"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="preferred_shiftInput"
                                 name="preferred_shift"
                                 value={formData.preferred_shift}
@@ -1088,7 +1079,7 @@ const EditEmployee = () => {
                               <label htmlFor="preferred_work_locationInput" className="form-label">Preferred Work Location</label>
                               <input
                                 type="text"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="preferred_work_locationInput"
                                 name="preferred_work_location"
                                 value={formData.preferred_work_location}
@@ -1101,7 +1092,7 @@ const EditEmployee = () => {
                               <label htmlFor="languageInput" className="form-label">Language</label>
                               <input
                                 type="text"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="languageInput"
                                 name="language"
                                 value={formData.language}
@@ -1113,7 +1104,7 @@ const EditEmployee = () => {
                             <div className="mb-3">
                               <label htmlFor="country_idInput" className="form-label">Country</label>
                               <select
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="country_idInput"
                                 name="country_id"
                                 value={formData.country_id}
@@ -1132,7 +1123,7 @@ const EditEmployee = () => {
                             <div className="mb-3">
                               <label htmlFor="state_idInput" className="form-label">State</label>
                               <select
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="state_idInput"
                                 name="state_id"
                                 value={formData.state_id}
@@ -1153,7 +1144,7 @@ const EditEmployee = () => {
                               <label htmlFor="streetInput" className="form-label">Street</label>
                               <input
                                 type="text"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="streetInput"
                                 name="street"
                                 value={formData.street}
@@ -1166,7 +1157,7 @@ const EditEmployee = () => {
                               <label htmlFor="cityInput" className="form-label">City</label>
                               <input
                                 type="text"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="cityInput"
                                 name="city"
                                 value={formData.city}
@@ -1179,7 +1170,7 @@ const EditEmployee = () => {
                               <label htmlFor="postal_codeInput" className="form-label">Postal Code</label>
                               <input
                                 type="text"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="postal_codeInput"
                                 name="postal_code"
                                 value={formData.postal_code}
@@ -1199,12 +1190,48 @@ const EditEmployee = () => {
                                 placeholder="Select skills..."
                                 value={preSelectedSkills}
                                 onChange={handleSkillsChange}
+                                styles={{
+                                  control: (baseStyles, state) => ({
+                                    ...baseStyles,
+                                    border: 'none',           
+                                    boxShadow: 'none',        
+                                    height: '54px',           
+                                    minHeight: '54px', 
+                                    backgroundColor: '#e2e5ed'      
+                                  }),
+                                  valueContainer: (base) => ({
+                                    ...base,
+                                    height: '54px',          
+                                    padding: '0 12px',
+                                  }),
+                                  indicatorsContainer: (base) => ({
+                                    ...base,
+                                    height: '54px',
+                                  }),
+                                  multiValue: (styles) => ({
+                                    ...styles,
+                                    backgroundColor: '#4e0092', // light blue background
+                                    color: '#fff', // text color
+                                  }),
+                                  multiValueLabel: (styles) => ({
+                                    ...styles,
+                                    fontWeight: '600',
+                                    color: '#fff',
+                                  }),
+                                  multiValueRemove: (styles) => ({
+                                    ...styles,
+                                    ':hover': {
+                                      backgroundColor: '#4e0092',
+                                      color: '#fff',
+                                    },
+                                  }),
+                              }}
                               />
                               {showCustomSkillInput && (
                                 <div className="mt-2 d-flex gap-2">
                                   <input
                                     type="text"
-                                    className="form-control"
+                                    className="form-control form-control-custom bg-lightBlue"
                                     placeholder="Add custom skill"
                                     value={customSkill}
                                     onChange={handleCustomSkillChange}
@@ -1226,7 +1253,7 @@ const EditEmployee = () => {
                               <label htmlFor="cvInput" className="form-label">Upload CV</label>
                               <input
                                 type="file"
-                                className="form-control"
+                                className="form-control form-control-custom bg-lightBlue"
                                 id="cvInput"
                                 name="cv"
                                 onChange={handleFileChange}
@@ -1247,9 +1274,9 @@ const EditEmployee = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </section>
+      <Footer/>
+    </>
   );
 };
 

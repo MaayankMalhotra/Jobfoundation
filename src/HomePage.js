@@ -633,7 +633,7 @@ const ServicesSection = () => {
 
 const CtaSection = () => {
   return (
-    <section className="py-5 bg-primary position-relative">
+    <section className="py-5 bg-primary position-relative" id="contact">
       <div className="bg-overlay bg-overlay-pattern opacity-50"></div>
       <div className="container">
         <div className="row align-items-center gy-4">

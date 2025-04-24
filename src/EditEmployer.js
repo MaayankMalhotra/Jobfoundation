@@ -496,6 +496,7 @@ import axios from 'axios';
 import Select from 'react-select';
 import Sidebar from './Sidebar'; // Import the Sidebar component
 import './EditEmployer.css'; // Use a separate CSS file (or reuse EditEmployee.css if identical)
+import Loader from './components/loader';
 
 const EditEmployer = () => {
   const [activeTab, setActiveTab] = useState('personalDetails');
@@ -700,7 +701,7 @@ const EditEmployer = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader/>;
   }
 
   const preSelectedSkills = skills.length > 0

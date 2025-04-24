@@ -16,6 +16,7 @@ import EditEmployer from "./EditEmployer";
 import EmployerDashboardProfile from "./EmployerDashboardProfile";
 import Logout from './Logout';
 import JobDetails from "./jobDetails";
+import PrivateRoute from './protectRoutes'
 
 
 
@@ -26,18 +27,20 @@ function App() {
       <Route path="/LoginPage" element={<LoginPage />} />
       <Route path="/auth-signup-basic-employee" element={<RegisterPage />} />
       <Route path="/auth-signup-basic-employer" element={<EmployerRegisterPage />} />
-      <Route path="/employee-dashboard" element={<EmployeeDashboardPage />} />
-      <Route path="/employee-employer-option" element={<EmployeeOrEmployer />} /> 
-      <Route path="/employer-dashboard" element={<EmployerDashboard />} /> 
       <Route path="/auth-pass-reset-basic" element={<ForgotPassword />} /> 
       <Route path="/reset-password" element={<PasswordReset />} /> 
-      <Route path="/edit-employee" element={<EditEmployee />} /> 
-      <Route path="/edit-employer" element={<EditEmployer />} /> 
       <Route path="/job-board" element={<JobBoard />} /> 
       <Route path="/job-list" element={<JobList />} /> 
       <Route path="/job-detail" element={<JobDetails />} /> 
+      <Route path="/employee-employer-option" element={<EmployeeOrEmployer />} /> 
+      <Route element={<PrivateRoute/>}>
+        <Route path="/employee-dashboard" element={<EmployeeDashboardPage />} />
+        <Route path="/employer-dashboard" element={<EmployerDashboard />} /> 
+        <Route path="/edit-employee" element={<EditEmployee />} /> 
+        <Route path="/edit-employer" element={<EditEmployer />} /> 
+        <Route path="/employer-profile-dashboard" element={<EmployerDashboardProfile />} /> 
+      </Route>
       <Route path="/logout" element={<Logout />} />
-      <Route path="/employer-profile-dashboard" element={<EmployerDashboardProfile />} /> 
     </Routes>
   );
 }

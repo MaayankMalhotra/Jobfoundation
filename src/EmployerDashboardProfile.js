@@ -252,7 +252,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import './EmployerDashboardProfile.css'; // Ensure you have a CSS file for custom styles
 import Sidebar from './Sidebar'; // Import the Sidebar component
-
+import Loader from './components/loader'
 const EmployerDashboardProfile = () => {
   const [employerData, setEmployerData] = useState(null);
   const [error, setError] = useState(null);
@@ -298,7 +298,7 @@ const EmployerDashboardProfile = () => {
   }
 
   if (!employerData) {
-    return <div>Loading...</div>;
+    return <Loader/>;
   }
 
   return (

@@ -25,7 +25,127 @@
   .table-responsive {
     overflow-x: auto;
   }
-  
+  .profileBoxTitleMain h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e0436;
+}
+
+.addressStyleDiv {
+    font-size: 15px;
+    color: #8d8e8f;
+    font-weight: 400;
+}
+
+.linkAbleEdit {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4f028e26;
+    color: #4f0094;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.aboutContentPro p {
+  font-size: 15px;
+}
+.cardPersonalInfoIn ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.cardPersonalInfoIn ul li {
+  width: calc(50% - 8px);
+  display: flex;
+}
+
+.iconProStyleIn {
+  width: 40px;
+  height: 40px;
+  background-color: #e2e5ed;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  margin-right: 15px;
+  color: #500890;
+}
+
+.contentProfileIn > h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1e0436;
+  margin: 0 0 2px;
+}
+
+.contentProfileIn > label {
+  color: #83858b;
+  font-size: 14px;
+  margin:0;
+}
+.uploadLabelStyle {
+  display: flex;
+  height: 110px;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #e5d9ee;
+  color: #250540;
+  background-color: #fdfdff;
+  cursor: pointer;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  flex-wrap: wrap;
+  line-height: 1;
+}
+
+.uploadLabelStyle > i {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  color: #ccc0d5;
+  font-weight: 400;
+  margin-bottom: -20px;
+}
+.fileUploaderSec .iconProStyleIn {
+  width: 28px;
+  min-width: 28px;
+  height: 28px;
+  font-size: 15px;
+  margin-right: 0;
+}
+.boxActionBtn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 4px;
+}
+.boxActionBtn i {
+  font-size: 14px;
+}
+.fileUploaderSec ul{
+  list-style-type: none;
+  padding: 0;
+}
+.fileUploaderSec ul > li {
+  border-bottom: 1px dashed #e1e1e1;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+}
+
+.fileUploaderSec ul > li:last-child {
+  border-bottom: 0;
+}
+
   @media (max-width: 768px) {
     .profile-wrapper {
       padding: 0 10px;
