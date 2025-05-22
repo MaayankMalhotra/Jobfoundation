@@ -57,7 +57,7 @@ const PasswordReset = () => {
         if (response.ok) {
           localStorage.setItem('token', data.token);
           localStorage.setItem('user', JSON.stringify(data.user));
-          navigate('/employee-dashboard'); // Redirect to dashboard
+          navigate('/profile'); // Redirect to dashboard
         } else {
           setError(data.message || 'Password reset failed. Please try again.');
         }
@@ -76,7 +76,7 @@ const PasswordReset = () => {
         <div className="accountPageContain">
           <div className="row">
             <ImageAuth />
-            <div className='col-md-6 '>
+            <div className='col-md-7'>
               <div className='sideAccountContent'>
                 <div className='innerFormAccount signUpForm'>
                   <h1>Password Reset</h1>

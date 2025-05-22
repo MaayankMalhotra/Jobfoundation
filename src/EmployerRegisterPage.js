@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate,Link } from "react-router-dom";
 import ImageAuth from './components/authLeftSide.js'
+import Swal from 'sweetalert2';
 const EmployerRegisterPage = () => {
   const navigate = useNavigate();
 
@@ -103,7 +104,11 @@ const EmployerRegisterPage = () => {
     } else if (!/\S+@\S+\.\S+/.test(trimmedData.email)) {
       newErrors.email = "Email is invalid.";
     }
-    if (!trimmedData.phone) newErrors.phone = "Phone is required.";
+    if (!trimmedData.phone) {
+      newErrors.phone = "Phone number is required.";
+    } else if (!/^\d{10}$/.test(trimmedData.phone)) {
+      newErrors.phone = "Phone number must be exactly 10 digits.";
+    }  
     if (!trimmedData.password) {
       newErrors.password = "Password is required.";
     } else if (trimmedData.password.length < 6) {
@@ -139,18 +144,43 @@ const EmployerRegisterPage = () => {
 
         if (response.ok) {
           console.log("Registration successful:", result);
-          alert("Registration successful!");
+          Swal.fire({
+            icon: 'success',
+            title: 'Registration successful!',
+            text: 'Your account has been successfully created.',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#5a34a0',
+          });
           // Redirect if needed
-          navigate("/employer-dashboard");
+          navigate("/job-post");
         } else {
           console.error("Registration failed:", result);
-
-          // Backend validation errors
           if (result.errors) {
-            setErrors(result.errors); // Set backend validation errors
+            Swal.fire({
+              icon: 'error',
+              title: 'Error!',
+              text: setErrors(result.errors),
+              confirmButtonText: 'OK',
+              confirmButtonColor: '#5a34a0',
+            });
+            // setErrors(result.errors); 
           } else {
-            alert(result.message || "Registration failed. Please try again.");
+            Swal.fire({
+              icon: 'error',
+              title: 'Error!',
+              text: result.message || "Registration failed. Please try again.",
+              confirmButtonText: 'OK',
+              confirmButtonColor: '#5a34a0',
+            });
+            // alert(result.message || "Registration failed. Please try again.");
           }
+         
+          // Backend validation errors
+          // if (result.errors) {
+          //   setErrors(result.errors); // Set backend validation errors
+          // } else {
+          //   alert(result.message || "Registration failed. Please try again.");
+          // }
         }
       } catch (error) {
         console.error("Error during registration:", error);
@@ -165,7 +195,7 @@ const EmployerRegisterPage = () => {
       <div className="accountPageContain">
         <div className="row">
           <ImageAuth />
-          <div className='col-md-6 '>
+          <div className='col-md-7'>
                 <div className='sideAccountContent d-flex'>
                   <div className='innerFormAccount signUpForm'>
                     <h1>Sign Up</h1>
@@ -174,7 +204,7 @@ const EmployerRegisterPage = () => {
                             <div className="row gx-3">
                               {/* Username */}
                               <div className="col-md-6 mb-3">
-                                <label htmlFor="username" className="form-label">
+                                <label htmlFor="username" className="form-label font-size-14">
                                   Username <span className="text-danger">*</span>
                                 </label>
                                 <input
@@ -192,7 +222,7 @@ const EmployerRegisterPage = () => {
 
                               {/* First Name */}
                               <div className="col-md-6 mb-3">
-                                <label htmlFor="first_name" className="form-label">
+                                <label htmlFor="first_name" className="form-label font-size-14">
                                   First Name <span className="text-danger">*</span>
                                 </label>
                                 <input
@@ -210,7 +240,7 @@ const EmployerRegisterPage = () => {
 
                               {/* Last Name */}
                               <div className="col-md-6 mb-3">
-                                <label htmlFor="last_name" className="form-label">
+                                <label htmlFor="last_name" className="form-label font-size-14">
                                   Last Name <span className="text-danger">*</span>
                                 </label>
                                 <input
@@ -228,7 +258,7 @@ const EmployerRegisterPage = () => {
 
                               {/* Email */}
                               <div className="col-md-6 mb-3">
-                                <label htmlFor="email" className="form-label">
+                                <label htmlFor="email" className="form-label font-size-14">
                                   Email <span className="text-danger">*</span>
                                 </label>
                                 <input
@@ -246,16 +276,21 @@ const EmployerRegisterPage = () => {
 
                               {/* Phone */}
                               <div className="col-md-6 mb-3">
-                                <label htmlFor="phone" className="form-label">
+                                <label htmlFor="phone" className="form-label font-size-14">
                                   Phone <span className="text-danger">*</span>
                                 </label>
                                 <input
-                                  type="number"
+                                  type="text"
                                   className={`form-control form-control-custom ${errors.phone ? "is-invalid" : ""}`}
                                   id="phone"
                                   name="phone"
                                   value={formData.phone}
-                                  onChange={handleInputChange}
+                                  onChange={(e) => {
+                                    const value = e.target.value;
+                                    if (/^\d{0,10}$/.test(value)) {
+                                      setFormData((prev) => ({ ...prev, phone: value }));
+                                    }
+                                  }}
                                   placeholder="Enter phone number"
                                   required
                                 />
@@ -264,7 +299,7 @@ const EmployerRegisterPage = () => {
 
                               {/* Password */}
                               <div className="col-md-6 mb-3">
-                                <label htmlFor="password" className="form-label">
+                                <label htmlFor="password" className="form-label font-size-14">
                                   Password <span className="text-danger">*</span>
                                 </label>
                                 <input
@@ -282,7 +317,7 @@ const EmployerRegisterPage = () => {
 
                               {/* Password Confirmation */}
                               <div className="col-md-6 mb-3">
-                                <label htmlFor="password_confirmation" className="form-label">
+                                <label htmlFor="password_confirmation" className="form-label font-size-14">
                                   Confirm Password <span className="text-danger">*</span>
                                 </label>
                                 <input
@@ -300,7 +335,7 @@ const EmployerRegisterPage = () => {
 
                               {/* Company Name */}
                               <div className="col-md-6 mb-3">
-                                <label htmlFor="company_name" className="form-label">
+                                <label htmlFor="company_name" className="form-label font-size-14">
                                   Company Name <span className="text-danger">*</span>
                                 </label>
                                 <input
@@ -318,7 +353,7 @@ const EmployerRegisterPage = () => {
 
                               {/* Number of Employees */}
                               <div className="col-md-6 mb-3">
-                                <label htmlFor="number_of_employees" className="form-label">
+                                <label htmlFor="number_of_employees" className="form-label font-size-14">
                                   Number of Employees <span className="text-danger">*</span>
                                 </label>
                                 <input
@@ -336,7 +371,7 @@ const EmployerRegisterPage = () => {
 
                               {/* Country */}
                               <div className="col-md-6 mb-3">
-                                <label htmlFor="country_id" className="form-label">
+                                <label htmlFor="country_id" className="form-label font-size-14">
                                   Country <span className="text-danger">*</span>
                                 </label>
                                 <select
@@ -359,7 +394,7 @@ const EmployerRegisterPage = () => {
 
                               {/* State */}
                               <div className="col-md-6 mb-3">
-                                <label htmlFor="state_id" className="form-label">
+                                <label htmlFor="state_id" className="form-label font-size-14">
                                   State <span className="text-danger">*</span>
                                 </label>
                                 <select
@@ -383,7 +418,7 @@ const EmployerRegisterPage = () => {
 
                               {/* Street */}
                               <div className="col-md-6 mb-3">
-                                <label htmlFor="street" className="form-label">
+                                <label htmlFor="street" className="form-label font-size-14">
                                   Street <span className="text-danger">*</span>
                                 </label>
                                 <input
@@ -401,7 +436,7 @@ const EmployerRegisterPage = () => {
 
                               {/* City */}
                               <div className="col-md-6 mb-3">
-                                <label htmlFor="city" className="form-label">
+                                <label htmlFor="city" className="form-label font-size-14">
                                   City <span className="text-danger">*</span>
                                 </label>
                                 <input
@@ -419,7 +454,7 @@ const EmployerRegisterPage = () => {
 
                               {/* Postal Code */}
                               <div className="col-md-6 mb-3">
-                                <label htmlFor="postal_code" className="form-label">
+                                <label htmlFor="postal_code" className="form-label font-size-14">
                                   Postal Code <span className="text-danger">*</span>
                                 </label>
                                 <input

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
 import Logout from './Logout';
+import dummyUser from './assets/images/dummy_avatar.jpg'
 
 const Sidebar = () => {
   const [user, setUser] = useState(null);
@@ -14,7 +15,7 @@ const Sidebar = () => {
     if (storedUser) {
       setUser({
         name: storedUser.name || 'User Name',
-        avatar: storedUser.avatar || '/build/images/users/avatar-1.jpg', // Fallback avatar
+        avatar: storedUser.avatar || dummyUser, // Fallback avatar
       });
       setIsEmployer(storedUser.role_id == 2); // Check if role is 2 (employer)
     } else {
@@ -68,7 +69,7 @@ const Sidebar = () => {
           </button>
           <div className="dropdown-menu dropdown-menu-end">
             <h6 className="dropdown-header">Welcome {user.name}!</h6>
-            <Link className="dropdown-item" to={isEmployer ? "/employer-profile-dashboard" : "/employee-dashboard"}>
+            <Link className="dropdown-item" to={isEmployer ? "/employer-profile" : "/profile"}>
               <i className="material-icons text-muted fs-16 align-middle me-1">account_circle</i>
               <span>Profile</span>
             </Link>
@@ -115,10 +116,34 @@ const Sidebar = () => {
             <li className="menu-title">
               <span className="text-white text-uppercase">Menu</span>
             </li>
-            {isEmployer ? (
+            <li className="nav-item">
+              <Link className="nav-link menu-link text-white" to="/employer-profile">
+                <i className="ri ri-dashboard-2-line me-2"></i>
+                <span>Dashboard</span>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link menu-link text-white" to="/job-post">
+                <i className="ri ri-briefcase-line me-2"></i>
+                <span>Add Job Post</span>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link menu-link text-white" to="/employer-profile-edit">
+                <i className="ri ri-user-settings-line me-2"></i>
+                <span>Profie Edit Employer</span>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link menu-link text-white" to="/logout">
+                <i className="ri ri-user-settings-line me-2"></i>
+                <span>Logout</span>
+              </Link>
+            </li>
+            {/* {isEmployer ? (
               <>
                 <li className="nav-item">
-                  <Link className="nav-link menu-link text-white" to="/employee-dashboard">
+                  <Link className="nav-link menu-link text-white" to="/profile">
                     <i className="ri ri-dashboard-2-line me-2"></i>
                     <span>Dashboard</span>
                   </Link>
@@ -130,7 +155,7 @@ const Sidebar = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link menu-link text-white" to="/edit-employee">
+                  <Link className="nav-link menu-link text-white" to="/profile-edit">
                     <i className="ri ri-user-settings-line me-2"></i>
                     <span>Edit Employee</span>
                   </Link>
@@ -169,7 +194,7 @@ const Sidebar = () => {
                   </Link>
                 </li>
               </>
-            )}
+            )} */}
           </ul>
         </div>
       </div>

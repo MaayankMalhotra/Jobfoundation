@@ -275,7 +275,7 @@
   
   .search-box .form-control.search {
     border-radius: 5px;
-    padding: 8px 40px 8px 40px;
+    padding: 8px 8px 8px 40px;
     font-size: 14px;
   }
   
@@ -286,6 +286,7 @@
     transform: translateY(-50%);
     color: #6c757d;
     font-size: 16px;
+    right:auto;
   }
   
   .filter-btn {

@@ -3,19 +3,13 @@ import HeaderMain from './components/header';
 import Footer from './components/footer';
 import BannerSection from './components/bannerSectionInner';
 import searchIcon from '../src/assets/images/searchIcon.png'
-import CalendarIcon from '../src/assets/images/calendarIcon.png'
-import MapIcon from '../src/assets/images/mapIcon.png'
-import ExperinceIcon from  '../src/assets/images/experince.png'
-import DollarIcon from  '../src/assets/images/dollar.png'
-import SearchJobIcon from  '../src/assets/images/Search_job_icon.png'
 import ProfileImage from  '../src/assets/images/profileImage.jpg'
-
+import JobCards from './components/jobsCard';
 import { Link } from 'react-router-dom';
-
 import Select from 'react-select';
 import { Range } from 'react-range';
-const MIN = 0;
-const MAX = 100000;
+// const MIN = 0;
+// const MAX = 100000;
 
 const JobList = () => {
     const MIN = 0;
@@ -171,9 +165,7 @@ const JobList = () => {
             rating:'4.5',
         }
     ]
-    const getInitials = (title) => {
-        return title.replace(/[^a-zA-Z]/g, '').substring(0, 2).toUpperCase();
-    };
+
 
 
     return(
@@ -368,78 +360,7 @@ const JobList = () => {
                                 <div className="row gx-3">
                                     {cardInfoJob.map((jobInfo) => (
                                         <div className='col-md-6' key={jobInfo.id}>
-                                            <article className="job-grid ">
-                                                <div className='main-row-job'>
-                                                        <div className="employer-logo">
-
-                                                            {jobInfo.profileImg ? (
-                                                                <Link href="#" className='imageLinkTitle'>
-                                                                    <img src={jobInfo.profileImg} alt="Profile" className="profile-image" />
-                                                                </Link>
-                                                            ) : (
-                                                                <Link href="#" className='textLinkTitle'>
-                                                                    {getInitials(jobInfo.jobTitle)}
-                                                                </Link>
-                                                            )}
-                                                            
-                                                        </div>
-                                                        <div className="job-information">
-                                                            
-                                                            <h2 className="job-title">
-                                                                <Link to="#" rel="bookmark">{jobInfo.jobTitle}</Link>
-                                                            </h2>
-                                                            <h3 className="employer-title">
-                                                                <img src={CalendarIcon}/>
-                                                                {jobInfo.date}
-                                                            </h3>
-                                                            <div className="job-location">
-                                                                <span>
-                                                                    <img src={MapIcon}/>
-                                                                    {jobInfo.address}
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div className='bodyCardJob'>
-                                                        <div className='mainCardShortInfo'>
-                                                            <div className="cardsInfoStyle bg-theme-light">
-                                                                <img src={ExperinceIcon} />
-                                                                <span>{jobInfo.experince}</span>
-                                                            </div>
-                                                        
-                                                            <div className="cardsInfoStyle bg-success-light">
-                                                                <img src={DollarIcon} />
-                                                                <span>{jobInfo.salary} {jobInfo.salaryType}</span>
-                                                            </div>
-                                                        
-                                                            <div className="cardsInfoStyle bg-sky-blue">
-                                                                <img src={SearchJobIcon}/>
-                                                                <span>{jobInfo.jobType}</span>
-                                                            </div>
-                                                        </div>
-                                                </div>
-                                                <div class="bottomCardInfo row gx-3 align-items-center">
-                                                    <div className="col text-start">
-                                                        <div className="d-inline ratingStarCstm">
-                                                            <span>{jobInfo.rating}</span>
-                                                            <i class="ri-star-fill text-warning"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-auto">
-                                                        {jobInfo.loginStatus ? 
-                                                        
-                                                        <Link to="#" class="btn btn-rounded-cstm btn-primary btn-sm w-100">
-                                                            Apply Now  <i class="ri-arrow-right-line align-bottom ms-1"></i>
-                                                        </Link>
-                                                        :
-                                                        <Link to="#" class="btn btn-rounded-cstm btn-primary btn-sm w-100">
-                                                            Login  <i class="ri-arrow-right-line align-bottom ms-1"></i>
-                                                        </Link>
-                                                            
-                                                        }
-                                                    </div>
-                                                </div>
-                                            </article>
+                                            <JobCards jobData={jobInfo} />
                                         </div>
                                     ))}
 

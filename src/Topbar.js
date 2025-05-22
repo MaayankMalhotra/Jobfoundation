@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Bootstrap CSS import
+import dummyUser from './assets/images/dummy_avatar.jpg'
 ///import './Topbar.css'; 
 
 const Topbar = () => {
@@ -30,7 +31,7 @@ const Topbar = () => {
   // User data (assuming logged in user)
   const user = {
     name: 'Anna', // Replace with dynamic auth data if available
-    avatar: 'build/images/users/avatar-1.jpg',
+    avatar: dummyUser,
   };
 
   // Bhai, yahan se JSX shuru hota hai

@@ -9,9 +9,9 @@ const EmployeeOrEmployer = () => {
       <div className="accountPageContain">
           <div className="row">
               <ImageAuth />
-              <div className='col-md-6 '>
+              <div className='col-md-7'>
                   <div className='sideAccountContent d-flex'>
-                      <div className='innerFormAccount align-self-center'>
+                      <div className='innerFormAccount accountSizeMaxStyle align-self-center'>
                       <div className="text-center">
                         <h1>Select Your Role</h1>
                         <p className="text-muted">Choose whether you are an Employee or an Employer.</p>

@@ -7,6 +7,7 @@ import HeaderMain from './components/header';
 import Footer from './components/footer';
 import { Card, Button, Row, Col } from "react-bootstrap";
 import { FaBuilding, FaMapMarkerAlt, FaDollarSign, FaArrowRight, FaBookmark } from "react-icons/fa";
+import HeroSection from './components/HeroSection';
 // import AuthCheck from './AuthCheck';
 
 
@@ -262,239 +263,6 @@ import { FaBuilding, FaMapMarkerAlt, FaDollarSign, FaArrowRight, FaBookmark } fr
 //     </section>
 //   );
 // };
-const HeroSection = () => {
-  const [jobTitle, setJobTitle] = useState(""); // State for job title input
-  const [jobType, setJobType] = useState(""); // State for job type dropdown
-  const [jobs, setJobs] = useState([]); // State to store API response
-  const [error, setError] = useState(""); // State for error messages
-  const [loading, setLoading] = useState(false); // State for loading status
-  const [bookmarks, setBookmarks] = useState({}); // State to track bookmarked jobs
-
-  const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission
-    setError(""); // Clear previous errors
-    setJobs([]); // Clear previous results
-    setLoading(true); // Set loading to true
-
-    // Construct the API URL with query parameters
-    const apiUrl = `https://girangroup.com/jobfoundation/public/api/filter-job?job_title=${encodeURIComponent(
-      jobTitle
-    )}&job_type=${jobType}`;
-
-    try {
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-
-      if (response.ok && data.status) {
-        setJobs(data.data); // Update state with fetched jobs
-      } else {
-        setError(data.message || "Failed to fetch jobs. Please try again.");
-      }
-    } catch (err) {
-      setError("An error occurred while fetching jobs. Please try again.");
-    } finally {
-      setLoading(false); // Set loading to false
-    }
-  };
-
-  const toggleBookmark = (jobId) => {
-    setBookmarks((prev) => ({
-      ...prev,
-      [jobId]: !prev[jobId], // Toggle bookmark state for the job
-    }));
-  };
-
-  return (
-    <section className="section job-hero-section gardientbgColor" id="hero">
-      <style>
-        {`
-          .custom-container {
-            max-width: 90% !important; /* Increase container width */
-            margin: 0 auto;
-          }
-          .job-card {
-            max-width: 100%; /* Ensure card takes full available width */
-            width: 100%;
-            margin: 0 auto;
-          }
-        `}
-      </style>
-      <div className="custom-container">
-        <div className="row justify-content-between align-items-center pt-5">
-          <div className="col-lg-8 text-center m-auto">
-            <div className="row justify-content-center">
-              <div className="col-lg-8">
-                <h1 className="bannerTitleMainHome">
-                  Find your next job and build your dream here
-                </h1>
-                <p className="lead text-muted lh-base mb-4">
-                  Find jobs, create trackable resumes and enrich your applications.
-                  Carefully crafted after analyzing the needs of different industries.
-                </p>
-              </div>
-            </div>
-            <div>
-              <form onSubmit={handleSubmit} className="job-panel-filter">
-                <div className="row g-md-0 g-2">
-                  <div className="col">
-                    <div className="row g-md-0 g-2">
-                      <div className="col-md-6">
-                        <div>
-                          <input
-                            type="search"
-                            id="job-title"
-                            className="form-control filter-input-box"
-                            placeholder="Job, Company name..."
-                            value={jobTitle}
-                            onChange={(e) => setJobTitle(e.target.value)} // Update jobTitle state
-                          />
-                        </div>
-                      </div>
-                      <div className="col-md-6">
-                        <div>
-                          <select
-                            className="form-control"
-                            value={jobType}
-                            onChange={(e) => setJobType(e.target.value)} // Update jobType state
-                          >
-                            <option value="">Select job type</option>
-                            <option value="Full-Time">Full Time</option>
-                            <option value="Part-Time">Part Time</option>
-                            <option value="remote">Remote</option>
-                            <option value="Internship">Internship</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-md-auto">
-                    <div className="h-100">
-                      <button
-                        className="btn btn-primary btn-customBnr submit-btn w-100 h-100"
-                        type="submit"
-                        disabled={loading} // Disable button while loading
-                      >
-                        <i className="ri-search-2-line align-bottom me-1"></i>{" "}
-                        {loading ? "Searching..." : "Find Job"}
-                      </button>
-                    </div>
-                  </div>
-                  
-                  
-                </div>
-              </form>
-
-              {error && (
-                <div className="alert alert-danger mt-3" role="alert">
-                  {error}
-                </div>
-              )}
-
-              {jobs.length > 0 && (
-                <div className="mt-4">
-                  <h4>Search Results:</h4>
-                  <Row>
-                    {jobs.map((job, index) => {
-                      // Transform API data to match JobCard props
-                      const jobData = {
-                        title: job.job_title || "Unknown Title",
-                        company: job.employer_id || "Unknown Company", // Adjust based on API response
-                        location: job.job_location || "Unknown Location", // Adjust based on API response
-                        salary: job.salary_range || "Not Specified", // Adjust based on API response
-                        description: job.overview || "No description available", // Adjust based on API response
-                        tags: [
-                          { text: job.job_type || "N/A", bgColor: "bg-success-subtle", color: "success" },
-                          { text: job.designation || "N/A", bgColor: "bg-danger-subtle", color: "danger" },
-                          { text: job.key_skills || "N/A", bgColor: "bg-primary-subtle", color: "primary" },
-                        ],
-                        companyImg: "assets/images/companies/img-placeholder.png", // Placeholder image
-                        bgColor: "bg-warning-subtle",
-                      };
-
-                      return (
-                        <Col md={12} key={index}>
-                          <Card className="shadow-lg mb-4 job-card">
-                            <Card.Body>
-                              <div className="d-flex">
-                                <div className={`avatar-sm me-3`}>
-                                  <div className={`avatar-title ${jobData.bgColor} rounded`}>
-                                    <img src={jobData.companyImg} alt="" className="avatar-xxs" />
-                                  </div>
-                                </div>
-                                <div className="flex-grow-1">
-                                  <a href="#!"><h5>{jobData.title}</h5></a>
-                                  <ul className="list-inline text-muted mb-3">
-                                    <li className="list-inline-item">
-                                      <FaBuilding className="me-1" /> {jobData.company}
-                                    </li>
-                                    <li className="list-inline-item">
-                                      <FaMapMarkerAlt className="me-1" /> {jobData.location}
-                                    </li>
-                                    <li className="list-inline-item">
-                                      <FaDollarSign className="me-1" /> {jobData.salary}
-                                    </li>
-                                  </ul>
-                                  <p className="text-muted job-description mt-3 mb-3">
-                                    {jobData.description}
-                                  </p>
-                                  <div className="hstack gap-2">
-                                    {jobData.tags.map((tag, tagIndex) => (
-                                      <span
-                                        key={tagIndex}
-                                        className={`badge ${tag.bgColor} text-${tag.color}`}
-                                      >
-                                        {tag.text}
-                                      </span>
-                                    ))}
-                                  </div>
-                                  <Button variant="primary" size="sm" className="mt-4">
-                                    View More <FaArrowRight className="ms-1" />
-                                  </Button>
-                                </div>
-                                <Button
-                                  variant="outline-primary"
-                                  className="btn-icon"
-                                  onClick={() => toggleBookmark(index)}
-                                >
-                                  <FaBookmark
-                                    className={bookmarks[index] ? "text-primary" : ""}
-                                  />
-                                </Button>
-                              </div>
-                            </Card.Body>
-                          </Card>
-                        </Col>
-                      );
-                    })}
-                  </Row>
-                </div>
-              )}
-
-              <ul className="treding-keywords list-inline mb-0 mt-3 fs-13">
-                <li className="list-inline-item text-danger fw-semibold">
-                  <i className="mdi mdi-tag-multiple-outline align-middle"></i>{" "}
-                  Trending Keywords:
-                </li>
-                <li className="list-inline-item">
-                  <a href="javascript:void(0)">Design,</a>
-                </li>
-                <li className="list-inline-item">
-                  <a href="javascript:void(0)">Development,</a>
-                </li>
-                <li className="list-inline-item">
-                  <a href="javascript:void(0)">Manager,</a>
-                </li>
-                <li className="list-inline-item">
-                  <a href="javascript:void(0)">Senior</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 
 
@@ -704,7 +472,11 @@ const HomePage = () => {
     <div className="layout-wrapper landing">
      
       <HeaderMain/>
-      <HeroSection />
+      <HeroSection  
+      SectionTitle="Find your next job and build your dream here" 
+      SectionDescription="Find jobs, create trackable resumes and enrich your applications.
+                    Carefully crafted after analyzing the needs of different industries."
+      />
       <ProcessSection />
       <FeaturesSection />
       <ServicesSection />

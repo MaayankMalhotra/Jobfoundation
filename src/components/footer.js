@@ -16,10 +16,10 @@ const Footer = () => {
               <div className="text-sm-end mt-3 mt-sm-0">
                 <ul className="list-inline mb-0 footer-list gap-4 fs-13">
                   <li className="list-inline-item">
-                    <a href="/pages-privacy-policy">Privacy Policy</a>
+                    <a href="#">Privacy Policy</a>
                   </li>
                   <li className="list-inline-item">
-                    <a href="/pages-term-conditions">Terms & Conditions</a>
+                    <a href="#">Terms & Conditions</a>
                   </li>
                 </ul>
               </div>

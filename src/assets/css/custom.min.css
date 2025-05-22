@@ -295,7 +295,7 @@
     background-color: #fff;
     border: 1px solid #ECEDF2;
     border-radius: 8px;
-    padding: 10px;
+    padding: 22px 15px;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -329,7 +329,7 @@
 .employer-title {
     font-size: 14px;
     font-weight: 400;
-    margin: 0 0 5px;
+    margin: 0;
     display: flex;
     gap:10px;
     color: #696969;
@@ -339,9 +339,9 @@
     max-width: 14px;
 }
 .job-title {
-    font-size: 16px;
-    font-weight: 500;
-    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 4px;
 }
 
 .job-location {
@@ -388,6 +388,14 @@
     color: #34A853;
     background: rgba(52, 168, 83, 0.15);
 }
+.bg-warning-light {
+    background-color: #fde9c5;
+    color: #df9b25;
+}
+.bg-danger-light {
+    background-color: #ffeae6;
+    color: #f06548;
+}
 .cardsInfoStyle > img{
     max-width:16px;
     max-height:16px;
@@ -395,7 +403,7 @@
 .main-row-job{
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: start;
 }
 .bodyCardJob {
     border-top: 1px solid #e5e5e5;
@@ -420,7 +428,7 @@
     object-fit: cover;
 }
 .ratingStarCstm{
-    background: #f7f2fb;
+    background: #e7e7e7;
     padding: 5px 12px;
     border-radius: 4px;
     font-size: 14px;
@@ -607,11 +615,26 @@
 .sideAccountImage > img {
     max-width: 200px;
 }
-.innerFormAccount  h1 {
+.innerFormAccount h1 {
     text-align: center;
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+.innerFormAccount h1:before {
+    content: '';
+    bottom: 0;
+    height: 3px;
+    width: 70px;
+    background-color: #7903ee;
+    z-index: 99;
+    left: 50%;
+    right: 0;
+    position: absolute;
+    transform: translateX(-50%);
+    border-radius: 10px;
 }
 .form-control-custom{
     min-height: 52px;
@@ -621,23 +644,21 @@
     overflow: hidden;
 }
 .innerFormAccount {
-    max-width: 600px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 6%;
+    width: 100%;
+}
+.accountSizeMaxStyle{
+    max-width: 650px;
 }
 .sideAccountContent {
     height: 100vh;
     overflow-y: auto;
 }
-.innerFormAccount {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 6%;
-    width: 100%;
-}
-.signUpForm.innerFormAccount{
+/* .signUpForm.innerFormAccount{
     max-width:700px;
-}
+} */
 
 .bannerTitleMainHome {
     font-weight: 600;
@@ -656,7 +677,7 @@
     background: #f5f5f5;
 }
 .form-control.form-control-custom:focus {
-    background: #e6e6ed;
+    background-color: #e6e6ed;
 }
 .form-control:disabled {
     background-color: #e9e9e9;
@@ -745,6 +766,345 @@
       transform: rotate(360deg);
     }
   }
+
+.font-size-14{
+    font-size: 14px;
+}
+.btn.btn-sm{
+    line-height: 1;
+    min-width: auto;
+    font-size: 15px;
+    padding: 5px 10px;
+}
+.job-panel-filter .form-control.filter-input-box{
+    border-radius: 30px;
+    border: 0;
+}
+select.form-control-custom{
+    position: relative;
+  }
+  
+select.form-control-custom,
+select.form-control {
+    width: 100%;
+    padding: 10px;
+    appearance: none; /* removes the default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><polygon points="0,0 20,0 10,10" fill="%23222222"/></svg>') no-repeat right 10px center;
+    background-color: #fff;
+    background-size: 10px;
+    cursor: pointer;
+}
+select.form-control-custom.bg-lightBlue {
+    background-color: #e2e5ed;
+}
+.invalid-feedback + .customInputPasswrd {
+    right: 30px;
+}
+.customInputPasswrd{
+    position:absolute;
+    top:15px;
+    right:15px;
+    z-index: 9;
+    cursor: pointer;
+}
+.customInputPasswrd i{
+    font-size: 18px;
+}
+.sideBarMenuNav.navbar-nav .nav-item{
+    width:100%;
+}
+.btnAddCustomPost i{
+    font-size: 18px;
+    line-height: 1;
+    margin-right: 8px;
+}
+.profileBoxTitleMain h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e0436;
+}
+
+.addressStyleDiv {
+    font-size: 15px;
+    color: #8d8e8f;
+    font-weight: 400;
+}
+
+.linkAbleEdit {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ecd4ff;
+    color: #4f0094;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.editLinkStyle.imageProfileUpdatedImg {
+    position: absolute;
+    z-index: 9;
+    top: 10px;
+    right: 10px;
+    opacity: 1;
+    pointer-events: none;
+}
+.profileImageWrapMain {
+    position: relative;
+    z-index: 0;
+}
+.aboutContentPro p {
+  font-size: 15px;
+}
+.cardPersonalInfoIn ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.cardPersonalInfoIn ul li {
+  width: calc(50% - 8px);
+  display: flex;
+}
+.singleListingOver.cardPersonalInfoIn ul{
+    gap:0;
+}
+.singleListingOver.cardPersonalInfoIn ul li {
+    width: 100%;
+    display: flex;
+    padding: 10px 10px 8px;
+    border-bottom: 1px dashed #e9edf1;
+}
+.singleListingOver.cardPersonalInfoIn ul li:last-child{
+    border-bottom: 0;
+}
+.singleListingOver .iconProStyleIn {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    margin-right:10px;
+}
+.singleListingOver .contentProfileIn > h3 {
+    font-size: 15px;
+}
+.singleListingOver .contentProfileIn > label {
+    font-size: 13px;
+}
+.iconProStyleIn {
+  width: 40px;
+  height: 40px;
+  background-color: #e2e5ed;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  margin-right: 15px;
+  color: #500890;
+}
+
+.contentProfileIn > h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1e0436;
+  margin: 0 0 2px;
+}
+
+.contentProfileIn > label {
+  color: #83858b;
+  font-size: 14px;
+  margin:0;
+}
+.uploadLabelStyle {
+  display: flex;
+  height: 110px;
+  justify-content: center;
+  align-items: center;
+  border: 2px dashed #e5d9ee;
+  color: #250540;
+  background-color: #fdfdff;
+  cursor: pointer;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  flex-wrap: wrap;
+  line-height: 1;
+}
+
+.uploadLabelStyle > i {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  color: #ccc0d5;
+  font-weight: 400;
+  margin-bottom: -20px;
+}
+.fileUploaderSec .iconProStyleIn {
+  width: 28px;
+  min-width: 28px;
+  height: 28px;
+  font-size: 15px;
+  margin-right: 0;
+}
+.boxActionBtn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  border-radius: 4px;
+}
+.boxActionBtn i {
+  font-size: 14px;
+}
+.fileUploaderSec ul{
+  list-style-type: none;
+  padding: 0;
+}
+.fileUploaderSec ul > li {
+  border-bottom: 1px dashed #e1e1e1;
+  padding-bottom: 6px;
+  margin-bottom: 6px;
+}
+
+.fileUploaderSec ul > li:last-child {
+  border-bottom: 0;
+}
+.listTableDesignStyle td {
+    font-size: 14px;
+}
+.tableHeadDesignStyle th {
+    color: #252525;
+    font-weight: 600;
+    font-size: 14px;
+}
+.tableMainDesignCstm.table .sort:after,
+.tableMainDesignCstm.table .sort:before{
+    display: none;
+}
+.listJobViewData{
+    padding-left: 0;
+    list-style-type: none;
+}
+.listJobViewData h4 {
+    font-weight: 700;
+    color: #151515;
+    min-width: 200px;
+    font-size: 15px;
+    margin: 0;
+}
+.listJobViewData li {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px dashed #e5e5e5;
+}
+.listJobViewData p {
+    margin: 0;
+    font-size: 15px;
+    color: #3e424c;
+}
+.viewbadgestyle {
+    font-size: 15px;
+}
+.page-link.active, .active>.page-link {
+    background-color: #7903ee;
+    border-color: #7903ee;
+}
+.listStyleColumnMain h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #151515;
+    margin-bottom: 3px;
+    line-height: 1.2;
+}
+
+.listStyleColumnMain p {
+    font-size: 14px;
+    margin: 0;
+}
+.listStyleColumnMain {
+    list-style: none;
+}
+
+.listStyleColumnMain li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e5e5e5;
+}
+.actionColumnData {
+    min-width: 53px;
+    padding-left: 5px;
+}
+.btnStyleMinWdth{
+    min-width:120px;
+}
+.btnLoaderStyle{
+    width: 22px;
+    height: 22px;
+    border-width: 2px;
+}
+.labelAddStatusCntnt {
+    padding: 0px 5px;
+    font-size: 13px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.mainTitleStyleWrap {
+    font-size: 28px;
+    color: #252525;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.mainTitleStyleShort{
+    font-size: 24px;
+    color: #252525;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.listImageStyle h2 {
+    font-size: 17px;
+    color: #252525;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+.listImageStyle p {
+    margin: 0;
+    font-size: 13px;
+    color: #656565;
+}
+.tableFontSize td{
+    font-size:14px;
+}
+.btn-success-custom:disabled {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.btn-success-custom {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.status select.form-select {
+    text-align: left;
+    background-size: 10px auto;
+    border: 0;
+    background-position: right .5rem center;
+}
+.linkAbleEdit.largeLinkEdit {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+}
 @media (max-width:1024px){
     .br-none{
         display: none;

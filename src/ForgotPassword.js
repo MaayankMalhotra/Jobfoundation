@@ -162,7 +162,7 @@ const ForgotPassword = () => {
                                                 />
                                             </div>
                                             <div className="text-center mt-4">
-                                                <button className="btn btn-success w-100" type="submit" disabled={isLoading}>
+                                                <button className="btn btn-primary w-100" type="submit" disabled={isLoading}>
                                                     {isLoading ? 'Sending...' : 'Send Reset Link'}
                                                 </button>
                                             </div>
